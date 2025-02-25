@@ -11,4 +11,4 @@ Tout ce que j'ai fait est dans le fichier lib. "main.dart" est le fichier princi
 
 - Juste cliquer sur le lien ou scanner le Qr code
 
-![Alt text](Qr_Code\Pr_t_Sortir-removebg-preview.png)
+![plot](Qr_Code\Pr_t_Sortir-removebg-preview.png)
