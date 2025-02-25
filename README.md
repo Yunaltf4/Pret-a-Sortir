@@ -1,16 +1,14 @@
-# no
+# Prêt à Sortir
 
-A new Flutter project.
+ Mon projet de recherche vise à créer une <ins>application mobile</ins> simple d’utilisation et accueillant qui permettra aux utilisateurs de regarder les <ins>prévisions météorologiques en temps réel</ins>. En plus, l’application proposera des vêtements qui seront adapté pour la journée. En utilisant le kit de développement de logiciel de <ins>Flutter</ins>. Je l’utiliserai pour la conception d’une interface intuitive et réactive qui sera utilisable sur Android et IOS. J’intégrerai un API de météo (<ins>OpenWeatherMap</ins>) pour avoir les informations en temps réel qui sera aussi utiliser pour <ins>proposer les vêtements</ins> que l’utilisateur pourrait utiliser. 
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+ ## Fichier fait par moi 
 
-A few resources to get you started if this is your first Flutter project:
+Tout ce que j'ai fait est dans le fichier lib. "main.dart" est le fichier principal qui inclue les 2 parties de mon application (vêtements et météo).
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Pour installer 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Juste cliquer sur le lien ou scanner le Qr code
+
+![Alt text](Qr_Code\Pr_t_Sortir-removebg-preview.png)
