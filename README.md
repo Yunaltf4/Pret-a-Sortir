@@ -11,4 +11,6 @@ Tout ce que j'ai fait est dans le fichier lib. "main.dart" est le fichier princi
 
 - Juste cliquer sur le lien ou scanner le Qr code
 
+lien : [Prêt à sortir](https://www.mediafire.com/file/yitd097q7h59p4t/Pr%25C3%25AAt-%25C3%25A0-Sortir.apk/file)
+
 ![plot](Qr_Code/Pr_t_Sortir-removebg-preview.png)
