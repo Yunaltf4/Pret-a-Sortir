@@ -12,9 +12,10 @@
 - Géolocalisation automatique
 - Thème visuel jour/nuit automatique.
 
-## Pour installer 
-
-- Juste cliquer sur le lien ou scanner le Qr code
+## Installation
+1. Téléchargez le fichier APK ci-dessus
+2. Activez les sources inconnues dans les paramètres Android
+3. Installez et lancez l'application
 
 lien : [Prêt à sortir](https://www.mediafire.com/file/yitd097q7h59p4t/Pr%25C3%25AAt-%25C3%25A0-Sortir.apk/file)
 
