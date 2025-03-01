@@ -93,7 +93,11 @@ class PageMeteo extends StatelessWidget {
                       ),
                       // Utilisation de Lottie pour les animations météo
                       Lottie.asset(
-                        _getWeatherAnimation(meteo?.condition),
+                        _getWeatherAnimation(
+                          meteo?.condition,
+                          isDay:
+                              _isDayTime(meteo, meteo?.time ?? DateTime.now()),
+                        ),
                         width: 120,
                         height: 120,
                       ),
@@ -149,7 +153,10 @@ class PageMeteo extends StatelessWidget {
                               children: [
                                 // Icône
                                 Lottie.asset(
-                                  _getWeatherAnimation(hourly.condition),
+                                  _getWeatherAnimation(
+                                    hourly.condition,
+                                    isDay: _isDayTime(meteo, hourly.time),
+                                  ),
                                   width: 50,
                                   height: 50,
                                 ),
@@ -291,14 +298,16 @@ class PageMeteo extends StatelessWidget {
     );
   }
 
-  // Sélection de l'animation météo
-  String _getWeatherAnimation(String? condition) {
+  // Sélection de l'animation météo avec gestion jour/nuit
+  String _getWeatherAnimation(String? condition, {required bool isDay}) {
     if (condition == null) return 'assets/meteo/default.json';
     switch (condition.toLowerCase()) {
       case 'clear':
-        return 'assets/meteo/lune.json';
+        return isDay ? 'assets/meteo/soleil.json' : 'assets/meteo/lune.json';
       case 'clouds':
-        return 'assets/meteo/nuage.json';
+        return isDay
+            ? 'assets/meteo/nuage_jour.json'
+            : 'assets/meteo/nuage.json';
       case 'rain':
         return 'assets/meteo/pluie.json';
       case 'snow':
@@ -306,5 +315,29 @@ class PageMeteo extends StatelessWidget {
       default:
         return 'assets/meteo/default.json';
     }
+  }
+
+  // Vérifie si c'est le jour pour une heure donnée
+  bool _isDayTime(Meteo? meteo, DateTime time) {
+    if (meteo == null) return true;
+
+    // Conversion des heures au même jour que le temps analysé
+    final sunriseToday = DateTime(
+      time.year,
+      time.month,
+      time.day,
+      meteo.sunrise.hour,
+      meteo.sunrise.minute,
+    );
+
+    final sunsetToday = DateTime(
+      time.year,
+      time.month,
+      time.day,
+      meteo.sunset.hour,
+      meteo.sunset.minute,
+    );
+
+    return time.isAfter(sunriseToday) && time.isBefore(sunsetToday);
   }
 }

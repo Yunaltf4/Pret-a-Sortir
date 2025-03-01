@@ -7,6 +7,7 @@ class Meteo {
   final String condition;
   final double lat;
   final double lon;
+  final DateTime time; // Heure locale de la météo
   final DateTime sunrise;
   final DateTime sunset;
   final double windSpeed;
@@ -19,6 +20,7 @@ class Meteo {
     required this.condition,
     required this.lat,
     required this.lon,
+    required this.time,
     required this.sunrise,
     required this.sunset,
     required this.windSpeed,
@@ -34,6 +36,7 @@ class Meteo {
       condition: json['weather'][0]['main'],
       lat: json['coord']['lat'],
       lon: json['coord']['lon'],
+      time: DateTime.fromMillisecondsSinceEpoch(json['dt'] * 1000),
       sunrise:
           DateTime.fromMillisecondsSinceEpoch(json['sys']['sunrise'] * 1000),
       sunset: DateTime.fromMillisecondsSinceEpoch(json['sys']['sunset'] * 1000),

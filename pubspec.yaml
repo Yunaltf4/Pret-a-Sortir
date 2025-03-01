@@ -98,6 +98,8 @@ flutter:
     - assets/icons/light_skirt.svg
     - assets/icons/flip_flops.svg
     - assets/icons/cooling_spray.svg
+    - assets/meteo/soleil.json
+    - assets/meteo/nuage_jour.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
