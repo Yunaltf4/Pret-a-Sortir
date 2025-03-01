@@ -18,4 +18,4 @@
 
 lien : [Prêt à sortir](https://www.mediafire.com/file/yitd097q7h59p4t/Pr%25C3%25AAt-%25C3%25A0-Sortir.apk/file)
 
-![plot](Qr_Code/Pr_t_Sortir-removebg-preview.png)
+![plot](Qr_Code/pres_a_sortir_qr.png)
