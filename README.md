@@ -17,6 +17,6 @@
 2. Activez les sources inconnues dans les paramètres Android
 3. Installez et lancez l'application
 
-lien : [Prêt à sortir](https://www.mediafire.com/file/yitd097q7h59p4t/Pr%25C3%25AAt-%25C3%25A0-Sortir.apk/file)
+lien : [Prêt à sortir](https://www.mediafire.com/file/w6fhsygbjlem8c4/Pr%25C3%25AAt_%25C3%25A0_Sortir.apk/file)
 
 ![plot](Qr_Code/pres_a_sortir_qr.png)
