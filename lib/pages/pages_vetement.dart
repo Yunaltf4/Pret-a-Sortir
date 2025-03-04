@@ -107,6 +107,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Commentaire sur la température
   String _getTemperatureComment(double temp) {
     if (temp < -20) return 'Froid extrême - Risque d\'hypothermie';
     if (temp < -10) return 'Froid glacial - Protection maximale nécessaire';
@@ -116,6 +117,7 @@ class PageVetement extends StatelessWidget {
     return 'Chaleur extrême - Protection contre la déshydratation';
   }
 
+  // Vêtements recommandés en fonction de la température
   List<String> _getTemperatureClothing(double temp) {
     if (temp < -10)
       return [
@@ -137,6 +139,7 @@ class PageVetement extends StatelessWidget {
     return ['Débardeur', 'Jupe légère', 'Nu-pieds', 'Brume rafraîchissante'];
   }
 
+  // Section des précipitations
   Widget _buildPrecipitationSection(String precipitationType) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -152,6 +155,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Commentaire sur les précipitations
   String _getPrecipitationComment(String type) {
     return {
           'rain': 'Pluie prévue - Imperméabilisation essentielle',
@@ -162,6 +166,7 @@ class PageVetement extends StatelessWidget {
         '';
   }
 
+  // Équipement recommandé en fonction des précipitations
   List<String> _getPrecipitationGear(String type) {
     return {
           'rain': [
@@ -192,6 +197,7 @@ class PageVetement extends StatelessWidget {
         [];
   }
 
+  // Section du vent
   Widget _buildWindSection(String strength) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,6 +209,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Commentaire sur le vent
   String _getWindComment(String strength) {
     return {
           'Léger': 'Vent léger - Aucune protection spécifique nécessaire',
@@ -213,6 +220,7 @@ class PageVetement extends StatelessWidget {
         'Conditions de vent normales';
   }
 
+  // Équipement recommandé en fonction du vent
   List<String> _getWindGear(String strength) {
     return {
           'Léger': ['Écharpe légère', 'Ceinture pour manteau'],
@@ -227,6 +235,7 @@ class PageVetement extends StatelessWidget {
         [];
   }
 
+  // Conditions spéciales
   Widget _buildSpecialConditions(String condition) {
     final tips = {
       'fog': 'Brouillard - Utilisez des vêtements réfléchissants',
@@ -245,6 +254,7 @@ class PageVetement extends StatelessWidget {
         : const SizedBox.shrink();
   }
 
+  // Grille des vêtements recommandés
   Widget _buildClothingGrid(List<String> items) {
     return GridView.builder(
       shrinkWrap: true,
@@ -281,6 +291,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Icône des vêtements
   Widget _getClothingIcon(String item) {
     final icons = {
       'Combinaison thermique': 'assets/icons/thermal_suit.svg',
@@ -332,6 +343,7 @@ class PageVetement extends StatelessWidget {
   bool _isNightTime() =>
       DateTime.now().isAfter(meteo?.sunset ?? DateTime.now());
 
+  // Type de précipitation
   String _getPrecipitationType() {
     final nextPrecip = hourlyForecasts.firstWhere(
       (h) =>
@@ -351,6 +363,7 @@ class PageVetement extends StatelessWidget {
                     : '';
   }
 
+  // Force du vent
   String _getWindStrength() {
     final windSpeed = meteo?.windSpeed ?? 0;
     return windSpeed < 3
@@ -362,8 +375,8 @@ class PageVetement extends StatelessWidget {
                 : 'Très fort';
   }
 
+  // Changements météo importants
   List<String> _getWeatherChanges() {
-    // Détecte les changements météo importants
     final changes = <String>[];
     final currentCondition = meteo?.condition.toLowerCase() ?? '';
 
@@ -377,6 +390,7 @@ class PageVetement extends StatelessWidget {
 
   // ... (méthodes UI communes)
 
+  // Carte de recommandation
   Widget _buildRecommendationCard(
       {required String title, required List<Widget> children}) {
     return ClipRRect(
@@ -399,6 +413,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Titre de section
   Widget _buildSectionTitle(String title) {
     return Text(
       title,
@@ -406,6 +421,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Recommandation de couche
   Widget _buildLayerRecommendation(String layer, String description) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -418,6 +434,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Astuce de superposition
   Widget _buildLayerTip() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -428,6 +445,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Astuce d'humidité
   Widget _buildHumidityTip() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -438,6 +456,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Astuce de gel
   Widget _buildFreezingTip() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -448,6 +467,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Protection solaire
   Widget _buildSunProtection() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -458,6 +478,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Astuce de visibilité
   Widget _buildVisibilityTip() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -468,6 +489,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Alerte de changement météo
   Widget _buildWeatherChangeAlert(String change) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -478,6 +500,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Texte d'information
   Widget _buildInfoText(String text) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
@@ -488,10 +511,12 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Bloc de chargement
   Widget _buildLoading() {
     return const Center(child: CircularProgressIndicator());
   }
 
+  // Décoration de la boîte
   BoxDecoration _boxDecoration() {
     return BoxDecoration(
       color: Colors.white.withOpacity(0.25),
@@ -500,6 +525,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Style de titre
   TextStyle _titleStyle() {
     return TextStyle(
       fontSize: 20,
@@ -509,6 +535,7 @@ class PageVetement extends StatelessWidget {
     );
   }
 
+  // Style de texte
   TextStyle _textStyle(
       {double fontSize = 16,
       FontWeight fontWeight = FontWeight.normal,

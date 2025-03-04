@@ -16,6 +16,7 @@ class MeteoService {
   // Récupération des données météo actuelles
   Future<Meteo> getMeteo(String nomVille) async {
     try {
+      // Envoi de la requête HTTP pour obtenir les données météo
       final rep = await http
           .get(
             Uri.parse(
@@ -23,7 +24,9 @@ class MeteoService {
           )
           .timeout(const Duration(seconds: 10));
 
+      // Vérification du statut de la réponse
       if (rep.statusCode == 200) {
+        // Conversion de la réponse JSON en objet Meteo
         return Meteo.fromJson(jsonDecode(rep.body));
       } else {
         throw Exception('Erreur ${rep.statusCode}');
@@ -39,13 +42,16 @@ class MeteoService {
   // Récupération des prévisions horaires
   Future<List<HourlyForecast>> getHourlyForecast(double lat, double lon) async {
     try {
+      // Envoi de la requête HTTP pour obtenir les prévisions horaires
       final rep = await http.get(
         Uri.parse(
             '$baseUrl/forecast?lat=$lat&lon=$lon&cnt=10&units=metric&appid=$apiKey'),
       );
 
+      // Vérification du statut de la réponse
       if (rep.statusCode == 200) {
         final jsonData = jsonDecode(rep.body);
+        // Conversion de la réponse JSON en liste d'objets HourlyForecast
         return (jsonData['list'] as List)
             .map((hour) => HourlyForecast.fromJson(hour))
             .toList();
@@ -60,6 +66,7 @@ class MeteoService {
   // Géolocalisation de l'utilisateur
   Future<String> getVilleActuelle() async {
     try {
+      // Vérification des permissions de localisation
       LocationPermission permission = await Geolocator.checkPermission();
 
       if (permission == LocationPermission.denied) {
@@ -78,6 +85,7 @@ class MeteoService {
         return "";
       }
 
+      // Obtention de la position actuelle de l'utilisateur
       Position position = await Geolocator.getCurrentPosition(
         locationSettings: LocationSettings(
           accuracy: LocationAccuracy.high,

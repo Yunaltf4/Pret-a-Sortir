@@ -2,17 +2,17 @@
 
 class Meteo {
   // Structure des données météo principales
-  final String nomVille;
-  final double temp;
-  final String condition;
-  final double lat;
-  final double lon;
+  final String nomVille; // Nom de la ville
+  final double temp; // Température actuelle
+  final String condition; // Condition météo (ex: pluie, soleil)
+  final double lat; // Latitude de la ville
+  final double lon; // Longitude de la ville
   final DateTime time; // Heure locale de la météo
-  final DateTime sunrise;
-  final DateTime sunset;
-  final double windSpeed;
-  final int humidity;
-  final double uvIndex;
+  final DateTime sunrise; // Heure du lever du soleil
+  final DateTime sunset; // Heure du coucher du soleil
+  final double windSpeed; // Vitesse du vent
+  final int humidity; // Humidité
+  final double uvIndex; // Indice UV
 
   Meteo({
     required this.nomVille,
@@ -49,11 +49,11 @@ class Meteo {
 
 class HourlyForecast {
   // Structure des prévisions horaires
-  final DateTime time;
-  final double temp;
-  final String condition;
-  final int humidity;
-  final double windSpeed;
+  final DateTime time; // Heure de la prévision
+  final double temp; // Température prévue
+  final String condition; // Condition météo prévue
+  final int humidity; // Humidité prévue
+  final double windSpeed; // Vitesse du vent prévue
 
   HourlyForecast({
     required this.time,
